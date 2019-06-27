@@ -1,7 +1,9 @@
+@model Escuela
+
 @{
     ViewData["Title"] = "Informacion Escuela";
 }
 
 <h1>Escuela</h1>
-<h2>Nombre: </h2>
-<p><strong>Año fundacion:</strong></p>
+<h2>Nombre: @Model.Nombre</h2>
+<p><strong>Año fundacion: @Model.Year_Fundacion</strong></p>
