@@ -7,7 +7,14 @@
 
 <h1>Escuela @ViewData["Title"]</h1>
 <h2>Nombre: @Model.Nombre</h2>
+<h3>Tipo de Escuela: @Model.TipoEscuela</h3>
 <p><strong>Año fundacion: @Model.AñoDeCreación</strong></p>
 
+<address>
+    <p>Dirección: @Model.Dirección</p>
+    <p>Ciudad: @Model.Ciudad</p>
+    <p>Pais: @Model.Pais</p>
+</address>
 <p><i>@ViewBag.CosaDinamica</i></p>
 <p><strong>@ViewData["CosaDinamica"]</strong></p>
+<p>@Model.UniqueId</p>

@@ -1,0 +1,15 @@
+@model Asignatura
+
+@{
+    ViewData["Title"] = "Informacion Asignatura";
+    Layout = "_Simple";
+    ViewBag.Fecha = System.DateTime.Now;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2>Nombre: @Model.Nombre</h2>
+
+<p><i>@ViewBag.CosaDinamica</i></p>
+<p><strong>@ViewData["CosaDinamica"]</strong></p>
+<p><i>@ViewBag.Fecha XXX</i></p>
+<p>@Model.UniqueId</p>

@@ -9,9 +9,13 @@ namespace HolaMundoMVC.Controllers
         public IActionResult Index()
         {
             var escuela = new Escuela();
-            escuela.UniqueId = Guid.NewGuid().ToString();
+            // escuela.UniqueId = Guid.NewGuid().ToString();
             escuela.Nombre = "Platzi School";
             escuela.AñoDeCreación = 2005;
+            escuela.TipoEscuela = TiposEscuela.Secundaria;
+            escuela.Dirección = "5ta Calle";
+            escuela.Ciudad = "Tecpan Guatemala";
+            escuela.Pais = "Guatemala";
 
             ViewBag.CosaDinamica = "La Monja";
 
