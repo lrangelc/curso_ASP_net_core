@@ -3,13 +3,16 @@
 @{
     ViewData["Title"] = "Informacion Asignatura";
     Layout = "_Simple";
-    ViewBag.Fecha = System.DateTime.Now;
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2>Nombre: @Model.Nombre</h2>
 
-<p><i>@ViewBag.CosaDinamica</i></p>
-<p><strong>@ViewData["CosaDinamica"]</strong></p>
-<p><i>@ViewBag.Fecha XXX</i></p>
-<p>@Model.UniqueId</p>
+<strong>Desde la vista normal</strong>
+<p>
+    Nombre: @Model.Nombre
+    <br/>
+    Id: @Model.UniqueId
+</p>
+
+<strong>Desde la vista parcial</strong>
+<partial name="_AsignaturaSimple"></partial>
