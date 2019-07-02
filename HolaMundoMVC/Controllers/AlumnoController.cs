@@ -20,9 +20,7 @@ namespace HolaMundoMVC.Controllers
 
         public IActionResult MultiAlumno()
         {
-            var listaAlumnos = _context.Alumnos.ToList();
-
-            return View(listaAlumnos);
+            return View(_context.Alumnos);
         }
 
         public AlumnoController(EscuelaContext context)

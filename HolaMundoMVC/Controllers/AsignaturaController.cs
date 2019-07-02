@@ -19,8 +19,7 @@ namespace HolaMundoMVC.Controllers
 
         public IActionResult MultiAsignatura()
         {
-            var listaAsignaturas = _context.Asignaturas.ToList();
-            return View(listaAsignaturas);
+            return View(_context.Asignaturas);
         }
 
         public AsignaturaController(EscuelaContext context)

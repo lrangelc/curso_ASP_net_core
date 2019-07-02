@@ -10,7 +10,7 @@ namespace HolaMundoMVC.Controllers
         private EscuelaContext _context;
 
         public IActionResult Index()
-        { 
+        {
             ViewBag.CosaDinamica = "La Monja";
 
             var escuela = _context.Escuelas.FirstOrDefault();
