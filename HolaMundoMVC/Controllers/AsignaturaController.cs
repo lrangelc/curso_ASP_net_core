@@ -1,32 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using HolaMundoMVC.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HolaMundoMVC.Controllers
 {
     public class AsignaturaController : Controller
     {
+        private EscuelaContext _context;
+
         public IActionResult Index()
         {
-            var asignatura = new Asignatura { Nombre = "Programacion" };
-
             ViewBag.CosaDinamica = "La Monja";
+            var asignatura = _context.Asignaturas.FirstOrDefault();
 
             return View(asignatura);
         }
 
         public IActionResult MultiAsignatura()
         {
-            var listaAsignaturas = new List<Asignatura>(){
-                            new Asignatura{Nombre="Matemáticas"} ,
-                            new Asignatura{Nombre="Educación Física"},
-                            new Asignatura{Nombre="Castellano"},
-                            new Asignatura{Nombre="Ciencias Naturales"},
-                            new Asignatura{Nombre="Programacion"}
-                };
-
-            // return View("MultiAsignatura",asignatura);
+            var listaAsignaturas = _context.Asignaturas.ToList();
             return View(listaAsignaturas);
+        }
+
+        public AsignaturaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }

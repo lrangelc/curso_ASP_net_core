@@ -10,16 +10,7 @@ namespace HolaMundoMVC.Controllers
         private EscuelaContext _context;
 
         public IActionResult Index()
-        {
-            // var escuela = new Escuela();
-
-            // escuela.Nombre = "Platzi School";
-            // escuela.AñoDeCreación = 2005;
-            // escuela.TipoEscuela = TiposEscuela.Secundaria;
-            // escuela.Dirección = "5ta Calle";
-            // escuela.Ciudad = "Tecpan Guatemala";
-            // escuela.Pais = "Guatemala";
-
+        { 
             ViewBag.CosaDinamica = "La Monja";
 
             var escuela = _context.Escuelas.FirstOrDefault();

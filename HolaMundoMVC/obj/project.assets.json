@@ -12088,7 +12088,7 @@
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.entityFrameworkCore.InMemory >= 2.2.4",
-      "Microsoft.entityFrameworkCore.SqlServer"
+      "Microsoft.entityFrameworkCore.SqlServer >= 2.2.4"
     ]
   },
   "packageFolders": {
@@ -12153,7 +12153,7 @@
           },
           "Microsoft.entityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "(, )"
+            "version": "[2.2.4, )"
           }
         },
         "imports": [

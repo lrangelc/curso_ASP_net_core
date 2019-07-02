@@ -7,34 +7,27 @@ namespace HolaMundoMVC.Controllers
 {
     public class AlumnoController : Controller
     {
+        private EscuelaContext _context;
+
         public IActionResult Index()
         {
-            var asignatura = new Alumno { Nombre = "Pepe Perez" };
-
             ViewBag.CosaDinamica = "La Monja";
 
-            return View(asignatura);
+            var alumno = _context.Alumnos.FirstOrDefault();
+
+            return View(alumno);
         }
 
         public IActionResult MultiAlumno()
         {
-            var listaAlumnos = GenerarAlumnosAlAzar(5);
+            var listaAlumnos = _context.Alumnos.ToList();
 
             return View(listaAlumnos);
         }
 
-        private List<Alumno> GenerarAlumnosAlAzar(int cantidad)
+        public AlumnoController(EscuelaContext context)
         {
-            string[] nombre1 = { "Alba", "Felipa", "Eusebio", "Farid", "Donald", "Alvaro", "Nicolás" };
-            string[] apellido1 = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
-            string[] nombre2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
-
-            var listaAlumnos = from n1 in nombre1
-                               from n2 in nombre2
-                               from a1 in apellido1
-                               select new Alumno { Nombre = $"{n1} {n2} {a1}" };
-
-            return listaAlumnos.OrderBy((al) => al.UniqueId).Take(cantidad).ToList();
+            _context = context;
         }
     }
 }
