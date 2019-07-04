@@ -56,14 +56,24 @@ namespace HolaMundoMVC.Controllers
         {
             ViewBag.Fecha = DateTime.Now;
 
-            var escuela = _context.Escuelas.FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
 
-            curso.EscuelaId = escuela.Id;
-            
-            _context.Cursos.Add(curso);
-            _context.SaveChanges();
+                curso.EscuelaId = escuela.Id;
 
-            return View("Index", curso);
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
+
+                ViewBag.Mensaje_Create = "Curso Creado";
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso);
+            }
+
+
         }
     }
 }
