@@ -1,0 +1,29 @@
+@model IEnumerable<Curso>
+
+@{
+    ViewData["Title"] = "Informacion Curso";
+    Layout = "_Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- @foreach (var alumno in Model)
+{
+    <partial name="_ObjetoEscuelaSimple" model="alumno"></partial>
+} -->
+
+<table class="table table-dark table-hover">
+    <thead>
+        <th scope="col">Nombre</th>
+        <th scope="col">Id</th>
+    </thead>
+    <tbody>
+@foreach (var curso in Model)
+{
+    <tr>
+        <td>@curso.Nombre</td>
+        <td>@curso.Id</td>
+    </tr>
+}
+    </tbody>
+</table>
