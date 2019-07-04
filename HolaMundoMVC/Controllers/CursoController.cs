@@ -2,12 +2,18 @@ using Microsoft.AspNetCore.Mvc;
 using HolaMundoMVC.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace HolaMundoMVC.Controllers
 {
     public class CursoController : Controller
     {
         private EscuelaContext _context;
+
+        public CursoController(EscuelaContext context)
+        {
+            _context = context;
+        }
 
         [Route("Curso/")]
         [Route("Curso/{id}")]
@@ -33,12 +39,31 @@ namespace HolaMundoMVC.Controllers
 
         public IActionResult MultiCurso()
         {
+            ViewBag.Fecha = DateTime.Now;
+
             return View(_context.Cursos);
         }
 
-        public CursoController(EscuelaContext context)
+        public IActionResult Create()
         {
-            _context = context;
+            ViewBag.Fecha = DateTime.Now;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            ViewBag.Fecha = DateTime.Now;
+
+            var escuela = _context.Escuelas.FirstOrDefault();
+
+            curso.EscuelaId = escuela.Id;
+            
+            _context.Cursos.Add(curso);
+            _context.SaveChanges();
+
+            return View("Index", curso);
         }
     }
 }

@@ -16,6 +16,8 @@
     <thead>
         <th scope="col">Nombre</th>
         <th scope="col">Id</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Jornada</th>
     </thead>
     <tbody>
 @foreach (var curso in Model)
@@ -23,6 +25,8 @@
     <tr>
         <td>@curso.Nombre</td>
         <td>@curso.Id</td>
+        <td>@curso.Dirección</td>
+        <td>@curso.Jornada</td>
     </tr>
 }
     </tbody>
