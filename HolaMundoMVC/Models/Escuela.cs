@@ -9,17 +9,17 @@ namespace HolaMundoMVC.Models
         [Required]
         public override string Nombre { get; set; }
 
-        public int AñoDeCreación { get; set; }
+        public int YearDeCreacion { get; set; }
 
         public string Pais { get; set; }
         public string Ciudad { get; set; }
 
-        public string Dirección { get; set; }
+        public string Direccion { get; set; }
 
         public TiposEscuela TipoEscuela { get; set; }
         public List<Curso> Cursos { get; set; }
 
-        public Escuela(string nombre, int año) => (Nombre, AñoDeCreación) = (nombre, año);
+        public Escuela(string nombre, int year) => (Nombre, YearDeCreacion) = (nombre, year);
 
         public Escuela()
         {
@@ -30,7 +30,7 @@ namespace HolaMundoMVC.Models
                        TiposEscuela tipo, 
                        string pais = "", string ciudad = "") : base()
         {
-            (Nombre, AñoDeCreación) = (nombre, año);
+            (Nombre, YearDeCreacion) = (nombre, año);
             Pais = pais;
             Ciudad = ciudad;
         }

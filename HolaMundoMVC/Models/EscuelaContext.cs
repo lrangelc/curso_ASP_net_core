@@ -13,7 +13,7 @@ namespace HolaMundoMVC.Models
 
         public DbSet<Curso> Cursos { get; set; }
 
-        public DbSet<Evaluación> Evaluaciones { get; set; }
+        public DbSet<Evaluacion> Evaluaciones { get; set; }
 
         public EscuelaContext(DbContextOptions<EscuelaContext> options) : base(options)
         {
@@ -26,9 +26,9 @@ namespace HolaMundoMVC.Models
 
             var escuela = new Escuela();
             escuela.Nombre = "Platzi School";
-            escuela.AñoDeCreación = 2005;
+            escuela.YearDeCreacion = 2005;
             escuela.TipoEscuela = TiposEscuela.Secundaria;
-            escuela.Dirección = "5ta Calle";
+            escuela.Direccion = "5ta Calle";
             escuela.Ciudad = "Tecpan Guatemala";
             escuela.Pais = "Guatemala";
 
@@ -48,7 +48,7 @@ namespace HolaMundoMVC.Models
 
             // var listaAsignaturas = new List<Asignatura>(){
             //                 new Asignatura{Nombre="Matemáticas"} ,
-            //                 new Asignatura{Nombre="Educación Física"},
+            //                 new Asignatura{Nombre="Educacion Física"},
             //                 new Asignatura{Nombre="Castellano"},
             //                 new Asignatura{Nombre="Ciencias Naturales"},
             //                 new Asignatura{Nombre="Programacion"}
@@ -81,10 +81,10 @@ namespace HolaMundoMVC.Models
                             new Asignatura{
                                 CursoId = curso.Id,
                                 Nombre="Matemáticas"} ,
-                            new Asignatura{ CursoId = curso.Id, Nombre="Educación Física"},
+                            new Asignatura{ CursoId = curso.Id, Nombre="Educacion Física"},
                             new Asignatura{ CursoId = curso.Id, Nombre="Castellano"},
                             new Asignatura{ CursoId = curso.Id, Nombre="Ciencias Naturales"},
-                            new Asignatura{ CursoId = curso.Id, Nombre="Programación"}
+                            new Asignatura{ CursoId = curso.Id, Nombre="Programacion"}
 
                 };
                 listaCompleta.AddRange(tmpList);
@@ -101,11 +101,11 @@ namespace HolaMundoMVC.Models
                             EscuelaId = escuela.Id,
                             Nombre = "101",
                             Jornada = TiposJornada.Mañana,
-                            Dirección = "5ta calle 2-79 Tecpan" },
-                        new Curso{EscuelaId = escuela.Id, Nombre = "201", Jornada = TiposJornada.Mañana,Dirección = "5ta calle 2-79 Tecpan"},
-                        new Curso{EscuelaId = escuela.Id, Nombre = "301", Jornada = TiposJornada.Mañana,Dirección = "5ta calle 2-79 Tecpan"},
-                        new Curso{EscuelaId = escuela.Id, Nombre = "401", Jornada = TiposJornada.Tarde,Dirección = "5ta calle 2-79 Tecpan"},
-                        new Curso{EscuelaId = escuela.Id, Nombre = "501", Jornada = TiposJornada.Tarde,Dirección = "5ta calle 2-79 Tecpan"},
+                            Direccion = "5ta calle 2-79 Tecpan" },
+                        new Curso{EscuelaId = escuela.Id, Nombre = "201", Jornada = TiposJornada.Mañana,Direccion = "5ta calle 2-79 Tecpan"},
+                        new Curso{EscuelaId = escuela.Id, Nombre = "301", Jornada = TiposJornada.Mañana,Direccion = "5ta calle 2-79 Tecpan"},
+                        new Curso{EscuelaId = escuela.Id, Nombre = "401", Jornada = TiposJornada.Tarde,Direccion = "5ta calle 2-79 Tecpan"},
+                        new Curso{EscuelaId = escuela.Id, Nombre = "501", Jornada = TiposJornada.Tarde,Direccion = "5ta calle 2-79 Tecpan"},
             };
         }
 

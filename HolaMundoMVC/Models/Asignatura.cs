@@ -13,6 +13,6 @@ namespace HolaMundoMVC.Models
 
         public Curso Curso { get; set; }
 
-        public List<Evaluación> Evaluaciones { get; set; }
+        public List<Evaluacion> Evaluaciones { get; set; }
     }
 }

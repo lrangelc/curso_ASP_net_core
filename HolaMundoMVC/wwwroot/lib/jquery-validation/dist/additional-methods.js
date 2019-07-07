@@ -142,7 +142,7 @@ $.validator.addMethod( "bic", function( value, element ) {
 }, "Please specify a valid BIC code" );
 
 /*
- * Código de identificación fiscal ( CIF ) is the tax identification code for Spanish legal entities
+ * Codigo de identificacion fiscal ( CIF ) is the tax identification code for Spanish legal entities
  * Further rules can be found in Spanish on http://es.wikipedia.org/wiki/C%C3%B3digo_de_identificaci%C3%B3n_fiscal
  *
  * Spanish CIF structure:
@@ -711,11 +711,11 @@ $.validator.addMethod( "netmask", function( value, element ) {
 }, "Please enter a valid netmask." );
 
 /*
- * The NIE (Número de Identificación de Extranjero) is a Spanish tax identification number assigned by the Spanish
+ * The NIE (Número de Identificacion de Extranjero) is a Spanish tax identification number assigned by the Spanish
  * authorities to any foreigner.
  *
- * The NIE is the equivalent of a Spaniards Número de Identificación Fiscal (NIF) which serves as a fiscal
- * identification number. The CIF number (Certificado de Identificación Fiscal) is equivalent to the NIF, but applies to
+ * The NIE is the equivalent of a Spaniards Número de Identificacion Fiscal (NIF) which serves as a fiscal
+ * identification number. The CIF number (Certificado de Identificacion Fiscal) is equivalent to the NIF, but applies to
  * companies rather than individuals. The NIE consists of an 'X' or 'Y' followed by 7 or 8 digits then another letter.
  */
 $.validator.addMethod( "nieES", function( value, element ) {
@@ -751,7 +751,7 @@ $.validator.addMethod( "nieES", function( value, element ) {
 }, "Please specify a valid NIE number." );
 
 /*
- * The Número de Identificación Fiscal ( NIF ) is the way tax identification used in Spain for individuals
+ * The Número de Identificacion Fiscal ( NIF ) is the way tax identification used in Spain for individuals
  */
 $.validator.addMethod( "nifES", function( value, element ) {
 	"use strict";

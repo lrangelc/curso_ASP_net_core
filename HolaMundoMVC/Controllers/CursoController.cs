@@ -105,7 +105,7 @@ namespace HolaMundoMVC.Controllers
 
                 var curso = curso_ant.SingleOrDefault();
                 curso.Nombre = curso_act.Nombre;
-                curso.Dirección = curso_act.Dirección;
+                curso.Direccion = curso_act.Direccion;
                 curso.Jornada = curso_act.Jornada;
 
                 _context.Cursos.Update(curso);

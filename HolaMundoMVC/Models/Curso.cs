@@ -17,7 +17,7 @@ namespace HolaMundoMVC.Models
         [Display(Name="Address",Prompt="Direccion de Correspondencia")]
         [Required]
         [MinLength(10)]
-        public string Dirección { get; set; }
+        public string Direccion { get; set; }
 
         public string EscuelaId { get; set; }
 
