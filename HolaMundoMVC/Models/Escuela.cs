@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HolaMundoMVC.Models
 {
     public class Escuela:ObjetoEscuelaBase
     {
+        [Required]
+        public override string Nombre { get; set; }
+
         public int AñoDeCreación { get; set; }
 
         public string Pais { get; set; }

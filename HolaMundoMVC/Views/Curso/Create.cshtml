@@ -1,4 +1,4 @@
-@model Curso
+@model HolaMundoMVC.Models.Curso
 
 @{
     ViewData["Title"] = "Creacion de Curso";
@@ -7,38 +7,51 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div asp-validation-summary="All"></div>
-<style>
-    .invalid-feedback {
-        display: block; /* Bootstrap oculta este campo a menos que el formulario tenga otras clases, por eso el workaround */
-    }
-</style>
-<form method="POST">
-    <div class="form-row">
-        <div class="form-group">
-            @Html.LabelFor(x => x.Nombre)
-            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" } )
-            <!-- Aca muestra el mensaje de error -->
-            @Html.ValidationMessageFor(x => x.Nombre, "", new { @class = "invalid-feedback" })
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group">
-            @Html.LabelFor(x => x.Dirección)
-            @Html.TextBoxFor(x => x.Dirección, new { @class = "form-control" } )    
-            @Html.ValidationMessageFor(x => x.Dirección, "", new { @class = "invalid-feedback" })
-        </div>
-    </div> 
-    <div>
-        <label asp-for="Jornada"></label>
-        @Html.DropDownList(
-            "Jornada", Html.GetEnumSelectList<TiposJornada>(),
-            "Seleccione una Jornada",
-            new {@class = "form-control"}
-        )
-    </div>
 
-    <input type="submit" />
-</form>
+<h1>Create</h1>
+
+<h4>Escuela</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <style>
+                .invalid-feedback {
+                    display: block; /* Bootstrap oculta este campo a menos que el formulario tenga otras clases, por eso el workaround */
+                }
+            </style>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Nombre)
+                @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(x => x.Nombre, "", new { @class = "invalid-feedback" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Dirección)
+                @Html.TextBoxFor(x => x.Dirección, new { @class = "form-control" } )    
+                @Html.ValidationMessageFor(x => x.Dirección, "", new { @class = "invalid-feedback" })
+            </div>
+            <div class="form-group">
+            <label asp-for="Jornada"></label>
+                @Html.DropDownList(
+                    "Jornada", Html.GetEnumSelectList<TiposJornada>(),
+                    "Seleccione una Jornada",
+                    new {@class = "form-control"}
+                )
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 <p><i>@ViewBag.Fecha</i></p>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
