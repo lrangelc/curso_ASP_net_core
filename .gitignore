@@ -6,6 +6,7 @@
 obj
 bin
 appsettings.Development.json
+HolaMundoMVC/appsettings.Development.json
 
 ###################
 # compiled source #
