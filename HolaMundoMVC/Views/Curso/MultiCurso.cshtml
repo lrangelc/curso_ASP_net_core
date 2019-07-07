@@ -27,6 +27,12 @@
         <td>@curso.Id</td>
         <td>@curso.Dirección</td>
         <td>@curso.Jornada</td>
+        <td>
+              @Html.ActionLink("Editar", "Update", new { id = curso.Id })
+        </td>
+        <td>
+              @Html.ActionLink("Eliminar", "Delete", new { id = curso.Id })
+        </td>
     </tr>
 }
     </tbody>

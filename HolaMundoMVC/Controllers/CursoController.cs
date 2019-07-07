@@ -119,5 +119,24 @@ namespace HolaMundoMVC.Controllers
                 return View(curso_act);
             }
         }
+
+        public IActionResult Delete(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return View("MultiCurso");
+            }
+            else
+            {
+                var curso = from cur in _context.Cursos
+                                 where cur.Id == id
+                                 select cur;
+
+                _context.Cursos.Remove(curso.FirstOrDefault());
+                _context.SaveChanges();
+
+                return RedirectToAction("MultiCurso");
+            }
+        }
     }
 }

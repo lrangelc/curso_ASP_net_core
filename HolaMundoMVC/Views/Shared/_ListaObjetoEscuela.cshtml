@@ -9,6 +9,12 @@
     <tr>
         <td>@obj.Nombre</td>
         <td>@obj.Id</td>
+        <td>
+              @Html.ActionLink("Editar", "Update", new { id = obj.Id })
+        </td>
+        <td>
+              @Html.ActionLink("Eliminar", "Delete", new { id = obj.Id })
+        </td>
     </tr>
 }
     </tbody>

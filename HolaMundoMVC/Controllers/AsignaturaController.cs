@@ -16,7 +16,6 @@ namespace HolaMundoMVC.Controllers
             _context = context;
         }
 
-
         private Curso Obtener_Curso(string CursoId)
         {
             var curso = from cur in _context.Cursos
@@ -111,7 +110,6 @@ namespace HolaMundoMVC.Controllers
             }
         }
 
-
         public IActionResult Update(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
@@ -141,7 +139,6 @@ namespace HolaMundoMVC.Controllers
             }
         }
 
-
         [HttpPost]
         public IActionResult Update(Asignatura asignatura_act)
         {
@@ -166,6 +163,24 @@ namespace HolaMundoMVC.Controllers
             else
             {
                 return View(asignatura_act);
+            }
+        }
+        public IActionResult Delete(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return View("MultiAsignatura");
+            }
+            else
+            {
+                var asignatura = from asg in _context.Asignaturas
+                                 where asg.Id == id
+                                 select asg;
+
+                _context.Asignaturas.Remove(asignatura.FirstOrDefault());
+                _context.SaveChanges();
+
+                return RedirectToAction("MultiAsignatura");
             }
         }
     }

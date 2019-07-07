@@ -23,6 +23,12 @@
     <tr>
         <td>@alumno.Nombre</td>
         <td>@alumno.Id</td>
+        <td>
+              @Html.ActionLink("Editar", "Update", new { id = alumno.Id })
+        </td>
+        <td>
+              @Html.ActionLink("Eliminar", "Delete", new { id = alumno.Id })
+        </td>
     </tr>
 }
     </tbody>
