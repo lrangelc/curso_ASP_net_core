@@ -36,8 +36,14 @@ namespace HolaMundoMVC
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // services.AddDbContext<EscuelaContext>(
+            //     options => options.UseInMemoryDatabase(databaseName: "testDB")
+            // );
+
+            string connString =  ConfigurationExtensions.GetConnectionString(this.Configuration,"DefaultConnection");
+
             services.AddDbContext<EscuelaContext>(
-                options => options.UseInMemoryDatabase(databaseName: "testDB")
+                options => options.UseNpgsql(connString)
             );
         }
 

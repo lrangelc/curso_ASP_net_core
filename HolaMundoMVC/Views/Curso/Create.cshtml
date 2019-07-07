@@ -8,15 +8,27 @@
 <h1>@ViewData["Title"]</h1>
 
 <div asp-validation-summary="All"></div>
+<style>
+    .invalid-feedback {
+        display: block; /* Bootstrap oculta este campo a menos que el formulario tenga otras clases, por eso el workaround */
+    }
+</style>
 <form method="POST">
-    <div>
-        <label asp-for="Nombre"></label>
-        <input asp-for="Nombre" />
+    <div class="form-row">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Nombre)
+            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" } )
+            <!-- Aca muestra el mensaje de error -->
+            @Html.ValidationMessageFor(x => x.Nombre, "", new { @class = "invalid-feedback" })
+        </div>
     </div>
-    <div>
-        <label asp-for="Dirección"></label>
-        <input asp-for="Dirección" />
-    </div>
+    <div class="form-row">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Dirección)
+            @Html.TextBoxFor(x => x.Dirección, new { @class = "form-control" } )    
+            @Html.ValidationMessageFor(x => x.Dirección, "", new { @class = "invalid-feedback" })
+        </div>
+    </div> 
     <div>
         <label asp-for="Jornada"></label>
         @Html.DropDownList(
