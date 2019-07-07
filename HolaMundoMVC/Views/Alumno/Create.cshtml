@@ -14,13 +14,14 @@
         <input asp-for="Nombre" />
     </div>
     <div>
-        <label asp-for="Curso"></label>
-        @Html.DropDownList(
+        <label asp-for="CursoId"></label>
+        <!-- @Html.DropDownList(
             "CursoId", 
             @ViewBag.Cursos, 
             "Seleccione...", 
             new {@class = "form-control"}
-        )
+        ) -->
+        <select asp-for="CursoId"class ="form-control" asp-items="ViewBag.Cursos"></select>
     </div>
     <input type="submit" />
 </form>

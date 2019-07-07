@@ -62,12 +62,13 @@ namespace HolaMundoMVC.Controllers
             var content = from p in _context.Cursos
                           select new { p.Id, p.Nombre };
 
-            ViewBag.Cursos = content
-                .Select(c => new SelectListItem
-                {
-                    Text = c.Nombre,
-                    Value = c.Id.ToString()
-                }).ToList();
+            // ViewBag.Cursos = content
+            //     .Select(c => new SelectListItem
+            //     {
+            //         Text = c.Nombre,
+            //         Value = c.Id.ToString()
+            //     }).ToList();
+            ViewData["Cursos"] = new SelectList(_context.Cursos, "Id", "Nombre"); 
 
             return View();
         }
