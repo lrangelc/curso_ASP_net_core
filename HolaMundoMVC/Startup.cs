@@ -36,15 +36,38 @@ namespace HolaMundoMVC
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            //UTILIZAR DB EN MEMORIA
+            //------------------>
             // services.AddDbContext<EscuelaContext>(
             //     options => options.UseInMemoryDatabase(databaseName: "testDB")
             // );
+            //UTILIZAR DB EN MEMORIA
+            //------------------<
 
+
+            //UTILIZAR DB SQL
+            //------------------>
             string connString =  ConfigurationExtensions.GetConnectionString(this.Configuration,"DefaultConnection");
 
+            //PostgreSQL
+            //------------------>
+            // services.AddDbContext<EscuelaContext>(
+            //     options => options.UseNpgsql(connString)
+            // );
+            //PostgreSQL
+            //------------------<
+
+
+            //SQL Server
+            //------------------>
             services.AddDbContext<EscuelaContext>(
-                options => options.UseNpgsql(connString)
+                options => options.UseSqlServer(connString)
             );
+            //SQL Server
+            //------------------<
+
+            //UTILIZAR DB SQL
+            //------------------<
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
