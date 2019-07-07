@@ -65,15 +65,59 @@ namespace HolaMundoMVC.Controllers
                 _context.Cursos.Add(curso);
                 _context.SaveChanges();
 
-                ViewBag.Mensaje_Create = "Curso Creado";
+                ViewBag.Mensaje_CreateUpdate = "Curso Creado";
                 return View("Index", curso);
             }
             else
             {
                 return View(curso);
             }
+        }
+
+        
+        public IActionResult Update(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                ViewBag.CosaDinamica = "La Monja";
+                var curso = _context.Cursos.FirstOrDefault();
+
+                return View(curso);
+            }
+            else
+            {
+                var curso = from cur in _context.Cursos
+                            where cur.Id == id
+                            select cur;
+                return View(curso.SingleOrDefault());
+            }
+        }
 
 
+        [HttpPost]
+        public IActionResult Update(Curso curso_act)
+        {
+            if (ModelState.IsValid)
+            {
+                var curso_ant = from cur in _context.Cursos
+                                 where cur.Id == curso_act.Id
+                                 select cur;
+
+                var curso = curso_ant.SingleOrDefault();
+                curso.Nombre = curso_act.Nombre;
+                curso.Dirección = curso_act.Dirección;
+                curso.Jornada = curso_act.Jornada;
+
+                _context.Cursos.Update(curso);
+                _context.SaveChanges();
+
+                ViewBag.Mensaje_CreateUpdate = "Curso Actualizado";
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso_act);
+            }
         }
     }
 }

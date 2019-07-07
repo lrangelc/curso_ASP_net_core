@@ -6,7 +6,12 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2>@ViewBag.Mensaje_Create</h2>
+@if (ViewBag.Mensaje_CreateUpdate != null)
+{
+<div class="alert alert-success" role="alert">
+    @ViewBag.Mensaje_CreateUpdate
+</div>
+}
 
 <strong>Desde la vista normal</strong>
 <p>
